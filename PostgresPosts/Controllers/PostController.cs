@@ -38,8 +38,16 @@ namespace PostgresPosts.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(string id)
         {
-            await _repository.Delete(id);
-            return Ok(id);
+            try
+            {
+                var guidId = Guid.Parse(id);
+                await _repository.Delete(guidId);
+                return Ok(id);
+            }
+            catch (FormatException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
