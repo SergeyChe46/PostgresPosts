@@ -46,7 +46,8 @@ namespace PostgresPosts.Controllers
             }
             catch (FormatException e)
             {
-                return BadRequest(e.Message);
+                throw new FormatException(e.Message);
+                //return BadRequest(e.Message);
             }
         }
     }

@@ -24,6 +24,5 @@ namespace PostgresPost.Tests.Repositories
             Assert.IsAssignableFrom<BaseRepository>(_repository);
             Assert.NotNull(_repository.GetAll());
         }
-
     }
 }
