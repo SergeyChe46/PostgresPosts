@@ -6,5 +6,7 @@ namespace PostgresPosts.Models.Repositories
     {
         Task<JsonResult> GetAll();
         Task Post(TPost entity);
+        Task Put(TPut entity);
+        Task Delete(string id);
     }
 }

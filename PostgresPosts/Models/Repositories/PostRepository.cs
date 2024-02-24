@@ -9,6 +9,17 @@ namespace PostgresPosts.Models.Repositories
     {
         public PostRepository(IConfiguration configuration) : base(configuration) { }
 
+        public async Task Delete(string id)
+        {
+            string query = @"DELETE FROM Posts
+                            WHERE PostId = @PostId";
+            await using (var command = dataSource.CreateCommand(query))
+            {
+                command.Parameters.AddWithValue("@PostId", Guid.Parse(id));
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
         public async Task<JsonResult> GetAll()
         {
             string query = @"SELECT PostId as ""PostId"",
@@ -31,6 +42,21 @@ namespace PostgresPosts.Models.Repositories
                             VALUES(@PostTitle, @PostBody)";
             await using var command = dataSource.CreateCommand(query);
             {
+                command.Parameters.AddWithValue("@PostTitle", entity.PostTitle);
+                command.Parameters.AddWithValue("@PostBody", entity.PostBody);
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
+        public async Task Put(PutPostViewModel entity)
+        {
+            string query = @"UPDATE Posts
+                            SET PostTitle = @PostTitle, 
+                            PostBody = @PostBody
+                            WHERE PostId = @PostId";
+            await using (var command = dataSource.CreateCommand(query))
+            {
+                command.Parameters.AddWithValue("@PostId", entity.PostId);
                 command.Parameters.AddWithValue("@PostTitle", entity.PostTitle);
                 command.Parameters.AddWithValue("@PostBody", entity.PostBody);
                 await command.ExecuteNonQueryAsync();

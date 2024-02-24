@@ -14,7 +14,6 @@ namespace PostgresPosts.Controllers
             _repository = repository;
         }
 
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -23,10 +22,24 @@ namespace PostgresPosts.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(PostPostViewModel postViewModel)
+        public async Task<IActionResult> Post(PostPostViewModel postViewModel)
         {
             await _repository.Post(postViewModel);
-            return Created(nameof(Post), new { postTitle = postViewModel.PostTitle, postBody = postViewModel.PostBody });
+            return CreatedAtAction(nameof(Post), postViewModel);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(PutPostViewModel putPostView)
+        {
+            await _repository.Put(putPostView);
+            return CreatedAtAction(nameof(Post), putPostView);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _repository.Delete(id);
+            return Ok(id);
         }
     }
 }
