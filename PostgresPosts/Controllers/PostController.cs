@@ -8,8 +8,8 @@ namespace PostgresPosts.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private IRepository<Post> _repository;
-        public PostController(IRepository<Post> repository)
+        private IRepository<PostPostViewModel, PutPostViewModel> _repository;
+        public PostController(IRepository<PostPostViewModel, PutPostViewModel> repository)
         {
             _repository = repository;
         }

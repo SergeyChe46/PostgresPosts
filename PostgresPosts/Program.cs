@@ -21,7 +21,7 @@ namespace PostgresPosts
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddScoped<IRepository<Post>, PostRepository>();
+            builder.Services.AddScoped<IRepository<PostPostViewModel, PutPostViewModel>, PostRepository>();
 
             var app = builder.Build();
 

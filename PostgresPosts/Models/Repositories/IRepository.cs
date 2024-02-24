@@ -2,7 +2,7 @@
 
 namespace PostgresPosts.Models.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<TPost, TPut> where TPost : class where TPut : class
     {
         Task<JsonResult> GetAll();
     }

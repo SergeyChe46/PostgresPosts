@@ -5,7 +5,7 @@ using System.Data;
 
 namespace PostgresPosts.Models.Repositories
 {
-    public class PostRepository : BaseRepository, IRepository<Post>
+    public class PostRepository : BaseRepository, IRepository<PostPostViewModel, PutPostViewModel>
     {
         public PostRepository(IConfiguration configuration) : base(configuration) { }
 
