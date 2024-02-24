@@ -9,13 +9,13 @@ namespace PostgresPosts.Models.Repositories
     {
         public PostRepository(IConfiguration configuration) : base(configuration) { }
 
-        public async Task Delete(string id)
+        public async Task Delete(Guid id)
         {
             string query = @"DELETE FROM Posts
                             WHERE PostId = @PostId";
             await using (var command = dataSource.CreateCommand(query))
             {
-                command.Parameters.AddWithValue("@PostId", Guid.Parse(id));
+                command.Parameters.AddWithValue("@PostId", id);
                 await command.ExecuteNonQueryAsync();
             }
         }
