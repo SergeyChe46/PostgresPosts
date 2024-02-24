@@ -19,12 +19,22 @@ namespace PostgresPosts.Models.Repositories
             DataTable table = new DataTable();
             await using (var command = dataSource.CreateCommand(query))
             {
-                await using (var reader = command.ExecuteReader())
-                {
+                await using (var reader = await command.ExecuteReaderAsync())
                     table.Load(reader);
-                }
             }
             return new JsonResult(table);
+        }
+
+        public async Task Post(PostPostViewModel entity)
+        {
+            string query = @"INSERT INTO Posts(PostTitle, PostBody)
+                            VALUES(@PostTitle, @PostBody)";
+            await using var command = dataSource.CreateCommand(query);
+            {
+                command.Parameters.AddWithValue("@PostTitle", entity.PostTitle);
+                command.Parameters.AddWithValue("@PostBody", entity.PostBody);
+                await command.ExecuteNonQueryAsync();
+            }
         }
     }
 }

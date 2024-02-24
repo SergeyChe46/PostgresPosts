@@ -21,5 +21,12 @@ namespace PostgresPosts.Controllers
             var table = await _repository.GetAll();
             return Ok(table);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Post(PostPostViewModel postViewModel)
+        {
+            await _repository.Post(postViewModel);
+            return Created(nameof(Post), new { postTitle = postViewModel.PostTitle, postBody = postViewModel.PostBody });
+        }
     }
 }

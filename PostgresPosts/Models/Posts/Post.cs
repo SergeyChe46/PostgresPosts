@@ -1,6 +1,6 @@
 ﻿namespace PostgresPosts.Models.Posts
 {
-    public class Post
+    public record Post
     {
         public Guid PostID { get; set; }
         public string PostTitle { get; set; }
