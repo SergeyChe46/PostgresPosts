@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Serialization;
 using PostgresPosts.Models.Posts;
 using PostgresPosts.Models.Repositories;
 
@@ -11,7 +12,11 @@ namespace PostgresPosts
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddNewtonsoftJson(opts =>
+            {
+                opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
