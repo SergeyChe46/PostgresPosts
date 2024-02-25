@@ -23,6 +23,11 @@ namespace PostgresPosts
 
             builder.Services.AddScoped<IRepository<PostPostViewModel, PutPostViewModel>, PostRepository>();
 
+            builder.Services.AddCors(opts =>
+            {
+                opts.AddDefaultPolicy(p => p.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,10 +37,14 @@ namespace PostgresPosts
                 app.UseSwaggerUI();
             }
 
+            app.UseCors(pol =>
+            {
+                pol.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            });
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

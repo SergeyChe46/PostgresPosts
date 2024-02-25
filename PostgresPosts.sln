@@ -3,9 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgresPosts", "PostgresPosts\PostgresPosts.csproj", "{0E27B3B7-ACDC-419A-866C-531B2E6DBB1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgresPosts", "PostgresPosts\PostgresPosts.csproj", "{0E27B3B7-ACDC-419A-866C-531B2E6DBB1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgresPost.Tests", "PostgresPost.Tests\PostgresPost.Tests.csproj", "{6052133F-A156-4EF8-B9AC-78F154B07494}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgresPost.Tests", "PostgresPost.Tests\PostgresPost.Tests.csproj", "{6052133F-A156-4EF8-B9AC-78F154B07494}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PostgresPost.UI", "PostgresPost.UI\", "{F69C8272-E0AE-4973-9B4E-052206099CE2}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55702"
+		Debug.AspNetCompiler.PhysicalPath = "PostgresPost.UI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55702\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55702"
+		Release.AspNetCompiler.PhysicalPath = "PostgresPost.UI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55702\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55702"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +41,10 @@ Global
 		{6052133F-A156-4EF8-B9AC-78F154B07494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6052133F-A156-4EF8-B9AC-78F154B07494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6052133F-A156-4EF8-B9AC-78F154B07494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F69C8272-E0AE-4973-9B4E-052206099CE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69C8272-E0AE-4973-9B4E-052206099CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69C8272-E0AE-4973-9B4E-052206099CE2}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69C8272-E0AE-4973-9B4E-052206099CE2}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
